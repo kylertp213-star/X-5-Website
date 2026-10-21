@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X-5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Silk fabric backdrop -->
+  <svg class="silk" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="30" /></filter>
+      <linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffdf8" /><stop offset="1" stop-color="#e7dac5" /></linearGradient>
+      <linearGradient id="s2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#d8c6ab" /><stop offset="1" stop-color="#f4ecdd" /></linearGradient>
+    </defs>
+    <rect width="1440" height="900" fill="#eee4d2" />
+    <g filter="url(#soft)">
+      <path d="M-100 160 C200 -40 420 260 700 120 S1200 -60 1550 120 L1550 -100 L-100 -100Z" fill="url(#s1)" />
+      <path d="M-100 520 C150 300 380 700 640 480 S1100 260 1550 560 L1550 1000 L-100 1000Z" fill="url(#s2)" opacity=".85" />
+      <path d="M300 900 C380 640 560 520 760 560 S1080 760 1020 900Z" fill="#fffaf0" opacity=".9" />
+      <path d="M900 -50 C960 220 1180 300 1300 520 S1500 780 1450 950 L1600 950 L1600 -50Z" fill="#e0d0b6" opacity=".7" />
+      <path d="M-50 700 C120 640 220 820 380 900 L-50 900Z" fill="#d4c1a4" opacity=".6" />
+      <path d="M520 -40 C560 120 700 200 820 160 S1000 40 1040 -40Z" fill="#fffdf9" opacity=".8" />
+    </g>
+  </svg>
+
+  <!-- Cat in the background (swapped for cat.png automatically if you add one) -->
+  <div class="bg-cat" id="bgCat">
+    <svg viewBox="0 0 400 520" aria-hidden="true">
+      <defs>
+        <radialGradient id="cBody" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#efd2a8" /><stop offset=".55" stop-color="#cf9e6b" /><stop offset="1" stop-color="#8f6240" /></radialGradient>
+        <radialGradient id="cShade" cx="50%" cy="50%" r="50%"><stop offset=".62" stop-color="#3b2212" stop-opacity="0" /><stop offset="1" stop-color="#3b2212" stop-opacity=".4" /></radialGradient>
+        <radialGradient id="cEye" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#eadf7c" /><stop offset=".6" stop-color="#a9a636" /><stop offset="1" stop-color="#5d6a22" /></radialGradient>
+        <linearGradient id="cBib" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf0dd" /><stop offset="1" stop-color="#e9d3b0" /></linearGradient>
+        <filter id="cFur" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="5" />
+        </filter>
+        <filter id="cBlur"><feGaussianBlur stdDeviation="9" /></filter>
+      </defs>
+
+      <ellipse cx="200" cy="508" rx="160" ry="14" fill="#3b2212" opacity=".28" filter="url(#cBlur)" />
+
+      <g filter="url(#cFur)">
+        <!-- tail -->
+        <path d="M296 492 C380 484 408 392 356 336" fill="none" stroke="url(#cBody)" stroke-width="40" stroke-linecap="round" />
+        <path d="M296 492 C380 484 408 392 356 336" fill="none" stroke="#6e4528" stroke-width="40" stroke-linecap="round" stroke-dasharray="7 24" opacity=".45" />
+        <!-- body -->
+        <path d="M96 506 C60 380 100 262 200 250 C300 262 340 380 304 506 Z" fill="url(#cBody)" />
+        <path d="M112 330q26 8 34 30M108 380q28 6 38 30M292 330q-26 8-34 30M296 380q-28 6-38 30" stroke="#6e4528" stroke-width="7" fill="none" stroke-linecap="round" opacity=".5" />
+        <!-- chest + legs -->
+        <ellipse cx="200" cy="360" rx="52" ry="90" fill="url(#cBib)" />
+        <path d="M148 506V380c0-20 30-20 30 0v126z" fill="url(#cBib)" />
+        <path d="M222 506V380c0-20 30-20 30 0v126z" fill="url(#cBib)" />
+        <ellipse cx="160" cy="504" rx="26" ry="12" fill="#f4e4c8" />
+        <ellipse cx="240" cy="504" rx="26" ry="12" fill="#f4e4c8" />
+        <!-- ears -->
+        <path d="M116 140L104 46l72 56z" fill="url(#cBody)" />
+        <path d="M284 140L296 46l-72 56z" fill="url(#cBody)" />
+        <path d="M122 124l-6-54 42 34z" fill="#e8b4a8" opacity=".9" />
+        <path d="M278 124l6-54-42 34z" fill="#e8b4a8" opacity=".9" />
+        <!-- head -->
+        <ellipse cx="200" cy="172" rx="96" ry="84" fill="url(#cBody)" />
+      </g>
+
+      <!-- head shading + markings -->
+      <ellipse cx="200" cy="172" rx="96" ry="84" fill="url(#cShade)" />
+      <path d="M200 98v34M176 104l6 28M224 104l-6 28" stroke="#6e4528" stroke-width="6" stroke-linecap="round" fill="none" opacity=".6" />
+      <path d="M112 176q22 4 34 14M110 198q24 2 38 12M288 176q-22 4-34 14M290 198q-24 2-38 12" stroke="#6e4528" stroke-width="5" stroke-linecap="round" fill="none" opacity=".5" />
+      <ellipse cx="178" cy="214" rx="30" ry="24" fill="#f8ebd3" />
+      <ellipse cx="222" cy="214" rx="30" ry="24" fill="#f8ebd3" />
+      <ellipse cx="200" cy="238" rx="24" ry="16" fill="#f8ebd3" />
+
+      <!-- eyes -->
+      <ellipse cx="156" cy="168" rx="21" ry="17" fill="url(#cEye)" stroke="#3b2212" stroke-width="2.5" />
+      <ellipse cx="244" cy="168" rx="21" ry="17" fill="url(#cEye)" stroke="#3b2212" stroke-width="2.5" />
+      <ellipse cx="156" cy="168" rx="5" ry="14" fill="#0b0805" />
+      <ellipse cx="244" cy="168" rx="5" ry="14" fill="#0b0805" />
+      <circle cx="150" cy="161" r="3.5" fill="#fff" opacity=".9" />
+      <circle cx="238" cy="161" r="3.5" fill="#fff" opacity=".9" />
+      <path d="M134 168q22-26 44 0M222 168q22-26 44 0" stroke="#2a170a" stroke-width="3" fill="none" stroke-linecap="round" />
+
+      <!-- nose, mouth, whiskers -->
+      <path d="M188 200h24l-12 14z" fill="#d58f86" />
+      <path d="M200 214v10M200 224q-10 10-22 4M200 224q10 10 22 4" stroke="#3b2212" stroke-width="2.5" fill="none" stroke-linecap="round" />
+      <path d="M150 220L70 206M150 228L66 232M150 236L74 256M250 220L330 206M250 228L334 232M250 236L326 256" stroke="#fff8ec" stroke-width="1.6" stroke-linecap="round" opacity=".85" />
+    </svg>
+  </div>
+
+  <header class="hero">
+    <p class="brand">X-5 &nbsp;Family</p>
+    <h1>Our Class<br /></h1>
+    <p class="sub">Thirty-eight faces, one class, Unlimited Chaos.</p>
+    <input id="search" type="search" placeholder="Search name or hobby" aria-label="Search" />
+  </header>
+
+  <main class="tree" id="tree">
+    <!-- Rendered by script.js -->
+  </main>
+
+  <section class="class-banner" aria-label="Class photo banner">
+    <div class="banner-heading">
+      <span class="banner-kicker">A PEEK AT CRAZYNESS</span>
+      <h2>Our Class, Crazy Memories</h2>
+      <p>One class, Unlimited fun!! 
+    </div>
+    <div class="banner-frame">
+      <img id="bannerPhoto" alt="Our class photo" hidden />
+      <div class="banner-placeholder" id="bannerPlaceholder">
+        <span class="placeholder-flower" aria-hidden="true">✿</span>
+        <strong>Your class photo goes here</strong>
+        <span>Set the photo path in script.js to display your image</span>
+      </div>
+      <div class="banner-photo-overlay" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span>- 2027 X-5 &middot; 38 members</p>
+  </footer>
+
+  <!-- Profile pop-up -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mName">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+
+      <div class="m-left">
+        <div class="m-photo" id="mPhoto"></div>
+      </div>
+
+      <div class="m-info">
+        <span class="m-role" id="mRole"></span>
+        <h2 id="mName"></h2>
+
+        <div class="m-section"><span>Date of Birth</span><p id="mDob"></p></div>
+        <div class="m-section"><span>Hobby</span><p id="mHobby"></p></div>
+        <div class="m-section"><span>Dream</span><p id="mDream"></p></div>
+        <div class="m-section m-quote"><span>Quote</span><p id="mQuote"></p></div>
+
+        <div class="m-section m-song" id="mSongBox">
+          <span>Favourite Song</span>
+          <p><strong id="songTitle"></strong><em id="songArtist"></em></p>
+        </div>
+
+        <div class="socials" id="mSocials"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
